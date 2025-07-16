@@ -90,7 +90,7 @@ const Footer = () => {
                 <li>
                   <a href="mailto:axioms.solutions.3@gmail.com">
                     <FiMail className="contact-icon" />
-                    contact@cogxioms.com
+                    contact@eaglefur.com
                   </a>
                 </li>
                 <li>
