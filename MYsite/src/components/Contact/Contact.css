@@ -395,6 +395,7 @@
 }
 
 /* Floating Labels */
+/* --- Fix floating label overlap --- */
 .contact-form label {
   position: absolute;
   left: 3rem;
@@ -405,18 +406,22 @@
   pointer-events: none;
   z-index: 3;
   background: #fff;
+  padding: 0 0.25rem;
+  /* Add background and padding to prevent overlap */
 }
 
 .contact-form label.filled,
 .contact-form input:focus + label,
 .contact-form textarea:focus + label {
-  top: 0.5rem;
-  left: 1rem;
+  top: -0.7rem;
+  left: 2.7rem;
   font-size: 0.8rem;
   color: #cf142b;
   background: #fff;
   padding: 0 0.5rem;
   border-radius: 4px;
+  z-index: 4;
+  /* Move label above input and add background */
 }
 
 /* Submit Button */

@@ -82,7 +82,7 @@ const Footer = () => {
               <h3 className="column-title">Contact Info</h3>
               <ul className="contact-info">
                 <li>
-                  <a href="https://www.cogxioms.com/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.eaglefur.com/" target="_blank" rel="noopener noreferrer">
                     <FiGlobe className="contact-icon" />
                     www.eaglefur.com
                   </a>
@@ -94,9 +94,9 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href='https://maps.app.goo.gl/9P4kFadkoCSqDR4o6' target='_blank'>
+                  <a href='#' target='_blank'>
                   <FiMapPin className="contact-icon" />
-                   Sabzazar Block C
+                   Not defined
                    </a>
                 </li>
               </ul>
