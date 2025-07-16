@@ -1,0 +1,242 @@
+/* Footer.css */
+
+.footer {
+  background-color: var(--primary); /* Dark blue background */
+  color: #ffffff;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-main {
+  padding: 3rem 0;
+}
+
+.footer .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  justify-items: center; /* This ensures equal spacing between columns */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand Column */
+.brand-column {
+  max-width: 350px;
+  justify-self: start; /* Align first column to start */
+}
+
+.brand-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.brand-description {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.social-links a {
+  color: #cf142b !important;
+  background: var(--primary) !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  margin: 0 0.3rem;
+  border: 2px #cf142b;
+}
+.social-links a:hover {
+  background: #cf142b !important;
+  color: #fff !important;
+}
+
+/* Links Column */
+.column-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  position: relative;
+}
+
+.column-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #405e8f;
+  border-radius: 3px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.footer-links li {
+  color: #94a3b8;
+}
+
+.footer-links li a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 0.2rem 0;
+}
+
+.footer-links li a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+/* Contact Column */
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-icon, .social-links a {
+  color: #cf142b !important;
+  background: var(--primary) !important;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  margin-top: 0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.contact-info a {
+  color: #fff !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-info a:hover {
+  color: #ffffff;
+}
+
+/* Copyright Section */
+.footer-copyright {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-copyright .container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+  }
+  
+  .brand-column {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    justify-self: center;
+    text-align: center;
+  }
+  
+  .brand-column .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    padding: 3rem 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+  .footer-column {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .brand-column {
+    max-width: 100%;
+    text-align: center;
+  }
+  .social-links {
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  .column-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .column-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .contact-info {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .contact-info li {
+    justify-content: center;
+  }
+}

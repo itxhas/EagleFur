@@ -1,0 +1,533 @@
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 0;
+  z-index: 1000;
+  background: #00247d;
+  border-bottom: 2px solid #cf142b;
+  backdrop-filter: none;
+  font-family: inherit;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.header.scrolled {
+  padding: 0.6rem 0;
+  background: #00247d;
+  box-shadow: 0 8px 32px rgba(0,36,125,0.15);
+  border-bottom: 2px solid #cf142b;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #cf142b;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s ease;
+  z-index: 1001;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo Styles */
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-image {
+  width: 120px;
+  height: 50px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.logoLink:hover .logo-image {
+  transform: scale(1.15) rotate(8deg);
+  filter: drop-shadow(0 8px 16px rgba(59, 130, 246, 0.3));
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoMain {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.logoSub {
+  color: #cf142b;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.logoPulse {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #cf142b;
+  border-radius: 50%;
+  top: -2px;
+  right: -8px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px #cf142b;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.8; }
+}
+
+/* Navigation Styles */
+.nav {
+  
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navList {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  
+  margin-right: 10rem;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+  margin-right: 3rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.navIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.navIcon {
+  font-size: 0.9rem;
+  color: #cf142b;
+  transition: all 0.3s ease;
+}
+
+.navText {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.navUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #cf142b;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navLink:hover .navIcon {
+  color: white;
+  transform: scale(1.1);
+}
+
+.navLink:hover .navUnderline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navLink.active {
+  color: white;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.navLink.active .navIcon {
+  color: #3b82f6;
+}
+
+.navLink.active .navUnderline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* CTA Button Styles */
+.ctaContainer {
+  position: relative;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #cf142b;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ctaText {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaArrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaGlow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 12px;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  animation: ctaPulse 2s infinite;
+}
+
+@keyframes ctaPulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+}
+
+.ctaButton:hover {
+  background: #00247d;
+  color: #fff;
+  border: 2px solid #00247d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,36,125,0.15);
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(3px);
+}
+
+.ctaButton:hover .ctaGlow {
+  left: 100%;
+}
+
+/* Mobile Button */
+.mobileButton {
+display: none;
+background: #cf142b;
+border: 1px solid #cf142b;
+color: #fff;
+cursor: pointer;
+padding: 0.6rem;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+.mobileButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile Menu Overlay */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  max-width: 350px;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.mobileCloseButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobileCloseButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.mobileNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.mobileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.mobileText {
+  flex: 1;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.mobileArrow {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.mobileLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateX(5px);
+}
+
+.mobileLink:hover .mobileIcon {
+  color: #3b82f6;
+}
+
+.mobileLink:hover .mobileArrow {
+  color: #3b82f6;
+  transform: translateX(3px);
+}
+
+.mobileCtaContainer {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.mobileCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.mobileCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+    background: #cf142b !important;
+  }
+  .mobileButton {
+    display: block;
+    background: #cf142b !important;
+    border: 1px solid #cf142b !important;
+    color: #fff !important;
+  }
+  .logoSub {
+    display: none;
+  }
+  .logoMain {
+    font-size: 1.2rem;
+  }
+  .mobileMenu {
+    background: #cf142b !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.6rem 0;
+  }
+  
+  .header.scrolled {
+    padding: 0.5rem 0;
+  }
+  
+  .header .container {
+    width: 95%;
+  }
+  
+  .logo-image {
+    width: 80px;
+    height: 40px;
+  }
+  
+  .logoMain {
+    font-size: 1.1rem;
+  }
+  
+  .mobileMenu {
+    width: 90%;
+    padding: 1.5rem 1rem;
+  }
+  
+  .mobileLink {
+    padding: 0.8rem;
+  }
+  
+  .mobileText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .container {
+    width: 98%;
+  }
+  
+  .logo-image {
+    width: 70px;
+    height: 35px;
+  }
+  
+  .logoMain {
+    font-size: 1rem;
+  }
+  
+  .mobileMenu {
+    width: 100%;
+    padding: 1rem 0.8rem;
+  }
+  
+  .mobileLink {
+    padding: 0.7rem;
+  }
+  
+  .mobileText {
+    font-size: 0.9rem;
+  }
+}
