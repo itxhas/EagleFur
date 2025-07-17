@@ -316,22 +316,39 @@ function AnimatedReviewsSection() {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, { margin: '-40% 0px -40% 0px', amount: 0.5 });
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth <= 900;
+  const prev = useRef(current);
 
   useEffect(() => {
-    if (!isSectionInView) return;
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % reviews.length);
-    }, 2000); // 2 seconds per review
-    return () => clearInterval(interval);
-  }, [isSectionInView, reviews.length]);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  // Only show up to 3 reviews in the stack, no overlap
-  const stacked = [0, 1, 2].map((offset) => {
-    const idx = (current + offset) % reviews.length;
-    return { ...reviews[idx], stackIndex: offset, key: `${idx}-${offset}` };
-  });
+  useEffect(() => {
+    // On mobile, always auto-advance. On desktop, only if in view.
+    if ((isMobile || isSectionInView) && !paused) {
+      const interval = setInterval(() => {
+        setCurrent((prev) => (prev + 1) % reviews.length);
+      }, 5000); // 5 seconds per review for smoother experience
+      return () => clearInterval(interval);
+    }
+  }, [isMobile, isSectionInView, reviews.length, paused]);
+
+  // For sliding animation direction
+  useEffect(() => { prev.current = current; }, [current]);
+
+  // Only show up to 3 reviews in the stack for desktop, 1 for mobile
+  const stacked = isMobile
+    ? [{ ...reviews[current], stackIndex: 0, key: `${current}-0` }]
+    : [0, 1, 2].map((offset) => {
+        const idx = (current + offset) % reviews.length;
+        return { ...reviews[idx], stackIndex: offset, key: `${idx}-${offset}` };
+      });
 
   return (
     <section ref={sectionRef} className="reviews-section about-detail-container" style={{ marginTop: '4rem', background: 'linear-gradient(135deg, #00247d 0%, #cf142b 100%)', borderRadius: '24px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', padding: '4rem 2rem' }}>
@@ -343,51 +360,85 @@ function AnimatedReviewsSection() {
           Don&apos;t just take our word for it – hear it straight from our clients!
         </p>
       </div>
-      <div className="reviews-right" style={{ flex: 1.2, minWidth: 320, maxWidth: 600, position: 'relative', height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <AnimatePresence initial={false}>
-          {stacked.map((review) => (
-            <motion.div
-              key={review.key}
-              className="review-card-stacked"
-              initial={{ opacity: 0, y: 60, scale: 0.96 }}
-              animate={{
-                opacity: 1 - review.stackIndex * 0.25,
-                y: review.stackIndex * 24,
-                scale: 1 - review.stackIndex * 0.04,
-                zIndex: 10 - review.stackIndex,
-                filter: review.stackIndex === 0 ? 'none' : 'blur(1px)',
-              }}
-              exit={{ opacity: 0, y: 60, scale: 0.96 }}
-              transition={{ duration: 0.6, type: 'spring', stiffness: 80, damping: 18 }}
-              style={{
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                top: 0,
-                margin: '0 auto',
-                background: '#fff',
-                borderRadius: '18px',
-                boxShadow: '0 4px 32px rgba(0,36,125,0.13)',
-                padding: '2.2rem 2rem 2rem 2rem',
-                color: '#00247d',
-                fontSize: '1.15rem',
-                fontWeight: 500,
-                border: '1.5px solid #ececec',
-                width: '100%',
-                maxWidth: 520,
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: 180,
-                overflow: 'hidden',
-                alignItems: 'center',
-                textAlign: 'center',
-                pointerEvents: review.stackIndex === 0 ? 'auto' : 'none',
-              }}
-            >
-              <p style={{ marginBottom: '2.2rem', color: '#cf142b', fontWeight: 600, lineHeight: 1.6 }}>{review.text}</p>
-              <span style={{ color: '#00247d', fontWeight: 700, fontSize: '1.05rem' }}>{review.author}</span>
-            </motion.div>
-          ))}
+      <div
+        className="reviews-right"
+        onMouseEnter={!isMobile ? () => setPaused(true) : undefined}
+        onMouseLeave={!isMobile ? () => setPaused(false) : undefined}
+        style={{ flex: 1.2, minWidth: 320, maxWidth: 600, position: 'relative', height: isMobile ? 'auto' : 320, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        {!isMobile && (
+          <>
+            <button onClick={() => setCurrent((current - 1 + reviews.length) % reviews.length)} className="arrow left">‹</button>
+            <button onClick={() => setCurrent((current + 1) % reviews.length)} className="arrow right">›</button>
+          </>
+        )}
+        <AnimatePresence initial={false} key={isMobile ? current : undefined}>
+          {stacked.map((review) => {
+            // console.log('Current:', current);
+            return (
+              <motion.div
+                key={isMobile ? current : review.key}
+                className="review-card-stacked"
+                initial={isMobile ? { opacity: 0, x: 100 } : { opacity: 0, y: 60, scale: 0.96 }}
+                animate={isMobile ? { opacity: 1, x: 0 } : {
+                  opacity: 1 - review.stackIndex * 0.25,
+                  y: review.stackIndex * 24,
+                  scale: 1 - review.stackIndex * 0.04,
+                  zIndex: 10 - review.stackIndex,
+                  filter: review.stackIndex === 0 ? 'none' : 'blur(1px)',
+                }}
+                exit={isMobile ? { opacity: 0, x: -100 } : { opacity: 0, y: 60, scale: 0.96 }}
+                transition={{ duration: 0.9, type: 'spring', stiffness: 80, damping: 18 }}
+                style={isMobile ? {
+                  background: '#fff',
+                  borderRadius: '18px',
+                  boxShadow: '0 4px 32px rgba(0,36,125,0.13)',
+                  padding: '2.2rem 2rem 2rem 2rem',
+                  color: '#00247d',
+                  fontSize: '1.15rem',
+                  fontWeight: 500,
+                  border: '1.5px solid #ececec',
+                  width: '100%',
+                  maxWidth: 400,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: 120,
+                  overflow: 'hidden',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  pointerEvents: 'auto',
+                  position: 'static',
+                  margin: '0 auto',
+                } : {
+                  position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  margin: '0 auto',
+                  background: '#fff',
+                  borderRadius: '18px',
+                  boxShadow: '0 4px 32px rgba(0,36,125,0.13)',
+                  padding: '2.2rem 2rem 2rem 2rem',
+                  color: '#00247d',
+                  fontSize: '1.15rem',
+                  fontWeight: 500,
+                  border: '1.5px solid #ececec',
+                  width: '100%',
+                  maxWidth: 520,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: 180,
+                  overflow: 'hidden',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  pointerEvents: review.stackIndex === 0 ? 'auto' : 'none',
+                }}
+              >
+                <p style={{ marginBottom: '2.2rem', color: '#cf142b', fontWeight: 600, lineHeight: 1.6 }}>{review.text}</p>
+                <span style={{ color: '#00247d', fontWeight: 700, fontSize: '1.05rem' }}>{review.author}</span>
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
       </div>
     </section>
