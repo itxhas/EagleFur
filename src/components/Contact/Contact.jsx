@@ -133,17 +133,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.h2 
-            className="contact-title"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <h2 className="contact-title">
             Let's Create Something
             <span className="gradient-text"> Amazing</span>
             <span className="title-accent"> Together</span>
-          </motion.h2>
+          </h2>
           
           <motion.p
             className="contact-subtitle"

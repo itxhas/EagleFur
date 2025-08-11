@@ -17,34 +17,14 @@ const About = () => {
     return (
       <section className="about-section">
         <div className="about-container">
-          <motion.div
-            className="about-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.h2 
-              className="about-title"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Transforming Ideas Into
-              <span className="gradient-text"> Digital Reality</span>
-            </motion.h2>
-            
-            <motion.p
-              className="about-subtitle"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
+          <div className="about-header">
+            <h2 className="about-title">
+              Transforming your ideas into digital reality
+            </h2>
+            <p className="about-subtitle">
               We are a passionate team of innovators, developers, and designers dedicated to creating cutting-edge solutions that drive business growth and digital transformation.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           <motion.div
             className="about-highlights"
@@ -115,30 +95,14 @@ const About = () => {
     <section className="about-detail-section">
       <div className="about-detail-container">
         {/* Hero Section */}
-        <motion.div
-          className="about-hero"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1 
-            className="about-hero-title"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+        <div className="about-hero">
+          <h1 className="about-hero-title">
             About <span className="gradient-text">EagleFur</span>
-          </motion.h1>
-          
-          <motion.p
-            className="about-hero-subtitle"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+          </h1>
+          <p className="about-hero-subtitle">
             We are a forward-thinking technology company that specializes in creating innovative digital solutions. Our mission is to transform businesses through cutting-edge technology, data-driven insights, and exceptional user experiences.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Values Section */}
         <motion.div
@@ -241,31 +205,12 @@ const About = () => {
         </motion.div>
 
         {/* Team Section */}
-        <motion.div
-          className="team-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="team-section">
           <h2 className="section-title">Our Team</h2>
-          <motion.p
-            className="team-description"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <p className="team-description">
             Our team consists of experienced developers, designers, and strategists who are passionate about creating exceptional digital experiences. We combine technical expertise with creative thinking to deliver solutions that exceed expectations.
-          </motion.p>
-          
-          <motion.div
-            className="team-stats"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          </p>
+          <div className="team-stats">
             <div className="stat-item">
               <div className="stat-number">50+</div>
               <div className="stat-label">Projects Completed</div>
@@ -278,8 +223,8 @@ const About = () => {
               <div className="stat-number">24/7</div>
               <div className="stat-label">Support Available</div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Client Reviews Section - Animated, Stacking, Scroll-triggered */}
         <AnimatedReviewsSection />

@@ -125,7 +125,7 @@ const Hero = () => {
     <section className="hero" id="home">
       <video
         className="hero-video-bg"
-        src="/videos/newvideo.mp4"
+        src="/videos/newvideo.mp4"  
         autoPlay
         loop
         muted

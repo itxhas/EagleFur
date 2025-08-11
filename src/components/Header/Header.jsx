@@ -122,7 +122,7 @@ const Header = () => {
           >
             <NavLink to="/" className="logoLink" onClick={handleLogoClick}>
               <div className="logo-container">
-                <img src="/logo.png" alt="Cogxioms" className="logo-image" />
+                <img src="/logo.svg" alt="EagleFur" className="logo-image" />
                 <div className="logoPulse"></div>
               </div>
             </NavLink>

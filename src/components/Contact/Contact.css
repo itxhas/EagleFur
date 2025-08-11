@@ -89,8 +89,6 @@
 .gradient-text {
   background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4) !important;
   color: transparent !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   text-shadow: none !important;
   position: relative;
@@ -103,11 +101,9 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: #0b2447;
+  background:white;
   border-radius: 2px;
-  transform: scaleX(0);
-  animation: titleUnderline 2s ease-out 1s forwards;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4) !important;
+  transform: scaleX(0); 
 }
 
 @keyframes titleUnderline {
@@ -667,20 +663,22 @@
     min-height: 180px;
     padding-left: 0;
     padding-top: 2vh;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
   }
   .lets-talk-heading {
     min-height: unset;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }
 
 .gradient-text,
 .gradient-text::after,
 .info-title::after {
-  background: #00247d !important;
-  color: #00247d !important;
+  background: white !important;
+  color: #cf142b !important;
 }
 
 .submit-button,

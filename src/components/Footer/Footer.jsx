@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiMapPin, FiGlobe } from 'react-icons/fi';
+import { FiPhone } from 'react-icons/fi';
 import './Footer.css';
 
 const Footer = () => {
@@ -94,11 +95,19 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
+                  <a>
+                    <FiPhone className="contact-icon" />
+                    +1 (407) 967-2303
+                  </a>
+                </li>
+                <li>
                   <a href='#' target='_blank'>
                   <FiMapPin className="contact-icon" />
-                   Not defined
+                   Winter Park , United States
                    </a>
+                   
                 </li>
+               
               </ul>
             </motion.div>
           </div>

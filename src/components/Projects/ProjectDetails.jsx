@@ -268,7 +268,7 @@ const gridBgStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(90deg, #211e6b 0%, #cf142b 100%)',
+  background: 'linear-gradient(90deg, #010e2e 0%, #410109ff 100%)',
   position: 'relative',
   overflow: 'hidden',
 };
@@ -298,22 +298,22 @@ const ProjectDetails = () => {
     <section style={gridBgStyle}>
       <div style={gridOverlayStyle}></div>
       <div style={{ background: '#fff', borderRadius: '28px', boxShadow: '0 8px 32px rgba(0,36,125,0.13)', maxWidth: 900, width: '100%', padding: '2.2rem 1.5rem', margin: '0 1rem', position: 'relative', zIndex: 2 }}>
-        <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', color: '#00247d', fontWeight: 700, fontSize: '1.1rem', marginBottom: '1.2rem', cursor: 'pointer' }}>&larr; Back</button>
+        <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', color: '#010e2e', fontWeight: 700, fontSize: '1.1rem', marginBottom: '1.2rem', cursor: 'pointer' }}>&larr; Back</button>
         <h1 style={{ color: '#cf142b', fontWeight: 800, fontSize: '2.1rem', marginBottom: '1.1rem', letterSpacing: '-1px' }}>{project.title}</h1>
         <img src={project.image} alt={project.title} style={{ width: '100%', maxHeight: 260, objectFit: 'cover', borderRadius: '18px', marginBottom: '1.2rem', boxShadow: '0 4px 24px rgba(0,36,125,0.10)' }} />
         <section style={{ marginBottom: '0.6rem' }}>
-          <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Overview</h2>
+          <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Overview</h2>
           <p style={{ color: '#222', fontSize: '1.05rem', lineHeight: 1.6 }}>{project.description}</p>
         </section>
         <section style={{ marginBottom: '0.6rem' }}>
-          <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Objectives</h2>
+          <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Objectives</h2>
           <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
             {details.objectives.map((obj, i) => <li key={i} style={{ marginBottom: 4 }}>{obj}</li>)}
           </ul>
         </section>
         <section style={{ marginBottom: '0.6rem', display: 'flex', gap: '1.2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: 220 }}>
-            <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Scope</h2>
+            <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Scope</h2>
             <strong style={{ color: '#cf142b' }}>Included:</strong>
             <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
               {details.scope.included.map((item, i) => <li key={i}>{item}</li>)}
@@ -324,31 +324,31 @@ const ProjectDetails = () => {
             </ul>
           </div>
           <div style={{ flex: 1, minWidth: 220 }}>
-            <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Tools & Technologies</h2>
+            <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Tools & Technologies</h2>
             <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
               {details.tools.map((tool, i) => <li key={i}>{tool}</li>)}
             </ul>
           </div>
         </section>
         <section style={{ marginBottom: '0.6rem' }}>
-          <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Process / Methodology</h2>
+          <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Process / Methodology</h2>
           <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
             {details.process.map((step, i) => <li key={i}>{step}</li>)}
           </ul>
         </section>
         <section style={{ marginBottom: '0.6rem' }}>
-          <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Features / Functionality</h2>
+          <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Features / Functionality</h2>
           <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
             {details.features.map((feature, i) => <li key={i}>{feature}</li>)}
           </ul>
         </section>
         <section>
-          <h2 style={{ color: '#00247d', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Challenges & Solutions</h2>
+          <h2 style={{ color: '#010e2e', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.18rem' }}>Challenges & Solutions</h2>
           <ul style={{ color: '#222', fontSize: '1.03rem', marginLeft: '1.2rem', marginBottom: 0 }}>
             {details.challenges.map((ch, i) => (
               <li key={i} style={{ marginBottom: 6 }}>
                 <strong style={{ color: '#cf142b' }}>Challenge:</strong> {ch.issue}<br />
-                <strong style={{ color: '#00247d' }}>Solution:</strong> {ch.solution}
+                <strong style={{ color: '#010e2e' }}>Solution:</strong> {ch.solution}
               </li>
             ))}
           </ul>

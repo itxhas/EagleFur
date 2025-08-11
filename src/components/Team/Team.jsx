@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// ...existing code...
 import './Team.css';
 
 const teamMembers = [
@@ -16,27 +16,30 @@ const teamMembers = [
 const Team = () => {
   const member = teamMembers[0];
   return (
-    <section className="team-section" style={{ background: '#fff', borderRadius: '32px', boxShadow: '0 8px 32px rgba(0,36,125,0.10)', padding: '4rem 0' }}>
+  <section className="team-section">
       <div className="team-section-background">
         <div className="team-container">
           <div className="team-header">
-            <h2 className="team-title" style={{ color: '#cf142b', fontWeight: 800 }}>
-              Meet Our <span style={{ color: '#00247d' }}>Leader</span>
+            <h2 className="team-title" style={{ color: '#cf142b', fontWeight: 800 ,marginTop:'5rem'}}>
+              Meet Our <span style={{ color: '#010e2e' }}>Leader</span>
             </h2>
-            <p className="team-subtitle" style={{ color: '#00247d' }}>
+            <p className="team-subtitle" style={{ color: 'white',marginBottom:'2rem' }}>
               The driving force behind our success
             </p>
+            <h3 style={{ color: '#010e2e', fontWeight: 700, marginTop: '2.5rem', textAlign: 'center' }}>
+              Let's Create Something Amazing Together
+            </h3>
           </div>
           <div className="team-display" style={{ justifyContent: 'center' }}>
-            <div className="team-member" style={{ background: '#fff', borderRadius: '22px', boxShadow: '0 8px 32px #00247d22', border: '2px solid #cf142b', color: '#00247d', maxWidth: 340, padding: '2.5rem 2rem', margin: '0 auto' }}>
-              <img src={member.image} alt={member.name} style={{ width: '140px', height: '180px', borderRadius: '20%', objectFit: 'cover', margin: '1.2rem auto 1.2rem auto', border: '4px solid #00247d', display: 'block' }} />
+            <div className="team-member" style={{ background: '#fff', borderRadius: '22px', boxShadow: '0 8px 32px #010e2e22', border: '2px solid #cf142b', color: '#010e2e', maxWidth: 340, padding: '2.5rem 2rem', margin: '0 auto', marginBottom:'5rem' }}>
+              <img src={member.image} alt={member.name} style={{ width: '140px', height: '180px', borderRadius: '20%', objectFit: 'cover', margin: '1.2rem auto 1.2rem auto', border: '4px solid #010e2e', display: 'block' }} />
               <h3 style={{ color: '#cf142b', fontWeight: 700 }}>{member.name}</h3>
-              <p style={{ color: '#00247d', fontWeight: 600 }}>{member.role}</p>
-              <p style={{ color: '#00247d', fontSize: '1rem', margin: '1rem 0' }}>{member.bio}</p>
+              <p style={{ color: '#010e2e', fontWeight: 600 }}>{member.role}</p>
+              <p style={{ color: '#010e2e', fontSize: '1rem', margin: '1rem 0' }}>{member.bio}</p>
               {member.skills && member.skills.length > 0 && (
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
                   {member.skills.map(skill => (
-                    <span key={skill} style={{ background: '#00247d', color: '#fff', borderRadius: '12px', padding: '6px 16px', fontWeight: 600, fontSize: '0.98rem' }}>{skill}</span>
+                    <span key={skill} style={{ background: '#010e2e', color: '#fff', borderRadius: '12px', padding: '6px 16px', fontWeight: 600, fontSize: '0.98rem' }}>{skill}</span>
                   ))}
                 </div>
               )}

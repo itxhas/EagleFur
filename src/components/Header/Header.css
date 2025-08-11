@@ -1,3 +1,10 @@
+@media (max-width: 900px) {
+  .header {
+    overflow-x: hidden;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
 /* Header Styles */
 .header {
   position: fixed;
@@ -6,7 +13,7 @@
   width: 100%;
   padding: 0.8rem 0;
   z-index: 1000;
-  background: #00247d;
+  background: transparent;
   border-bottom: 2px solid #cf142b;
   backdrop-filter: none;
   font-family: inherit;
@@ -15,7 +22,7 @@
 
 .header.scrolled {
   padding: 0.6rem 0;
-  background: #00247d;
+  background: white;
   box-shadow: 0 8px 32px rgba(0,36,125,0.15);
   border-bottom: 2px solid #cf142b;
 }
@@ -57,7 +64,7 @@
 }
 
 .logo-image {
-  width: 120px;
+  width: 100px;
   height: 50px;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -140,7 +147,9 @@
   font-size: 0.95rem;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  color: #fff;
+  color: #00247d; 
+  background: #fff; 
+  border: 1.5px solid #00247d;
   text-decoration: none;
   position: relative;
   overflow: hidden;
@@ -180,8 +189,8 @@
 }
 
 .navLink:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: #00247d;
+  background: #e6f0ff;
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -196,9 +205,9 @@
 }
 
 .navLink.active {
-  color: white;
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #00247d;
+  background: #e6f0ff;
+  border: 1px solid #3b82f6;
 }
 
 .navLink.active .navIcon {

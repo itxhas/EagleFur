@@ -203,7 +203,14 @@ const tagIcons = {
 const Services = () => {
   const [expanded, setExpanded] = useState(null); // index of expanded card
   const [active, setActive] = useState(0); // index of card in view
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 900 : false);
   const cardRefs = useRef([]);
+  // Responsive window width handler
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 900);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Scrollspy logic
   useEffect(() => {
@@ -254,7 +261,7 @@ const Services = () => {
               <h2>{service.title}</h2>
               <p className="details-desc">{service.description}</p>
               <div className="details-tags">
-                {service.items.map((item, i) => (
+                {!isMobile && service.items.map((item, i) => (
                   <span className="details-tag" key={i}>
                     <span className="tag-icon">{tagIcons[item.name] || '🔹'}</span> {item.name}
                   </span>
