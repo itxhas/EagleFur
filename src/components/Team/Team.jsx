@@ -26,7 +26,7 @@ const Team = () => {
             <p className="team-subtitle" style={{ color: 'white',marginBottom:'2rem' }}>
               The driving force behind our success
             </p>
-            <h3 style={{ color: '#010e2e', fontWeight: 700, marginTop: '2.5rem', textAlign: 'center' }}>
+            <h3 style={{ color: 'white', fontWeight: 700, marginTop: '2.5rem', textAlign: 'center' }}>
               Let's Create Something Amazing Together
             </h3>
           </div>
